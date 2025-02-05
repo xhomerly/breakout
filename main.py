@@ -76,6 +76,13 @@ def game_loop():
     while running:
         screen.fill(BLACK)
 
+        # Zpracování událostí
+        for event in pygame.event.get():
+            if event.type == pygame.QUIT:
+                pygame.quit()
+                return False
+
+        # Zpracování pohybu pálky
         keys = pygame.key.get_pressed()
         if keys[pygame.K_LEFT] and paddle.left > 0:
             paddle.move_ip(-6, 0)
